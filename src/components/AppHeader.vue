@@ -20,7 +20,7 @@ export default {
 <template>
     <header>
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg p-0 second-bg-color">
             <div class="container">
                 <!-- logo -->
                 <RouterLink class="navbar-brand" :to="{ name: 'home' }">
@@ -33,8 +33,8 @@ export default {
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <!-- left side -->
-                    <ul class="navbar-nav">
-                        <li v-for="link in links" :key="link.to" class="me-3 nav-item">
+                    <ul class="navbar-nav fw-semibold">
+                        <li v-for="link in links" :key="link.to" class="me-4 nav-item">
                             <RouterLink id="nav_color" class="nav-link active" :to="{ name: link.to }">
                                 {{ link.label }}
                             </RouterLink>
@@ -47,42 +47,40 @@ export default {
     </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../assets/Scss/vars' as *;
+
 #logo {
-    max-width: 80px;
+    max-width: 60px;
     border-radius: 50%;
-    border: solid #f2c14e;
+    border: 1px solid $second-color;
 }
 
 header {
     background-color: #faedcd;
-    font-weight: 800;
-    font-size: 24px;
+    font-size: 1.1rem;
     letter-spacing: 1px;
-    border-bottom: solid #f2c14e;
-    -webkit-box-shadow: 0px 0px 17px 10px #f2c14e;
-    box-shadow: 0px 0px 17px 10px #f2c14e;
 }
 
 #nav_color {
-    color: #296a4f;
+    color: $main-color;
 }
 
 .active {
-    color: #1b4332;
+    color: $main-color;
 }
 
 #bottom_nav_link {
     margin: auto;
-    height: 5px;
+    height: 2px;
     width: 0%;
     border-radius: 5px;
-    background-color: #296a4f;
+    background-color: $main-color;
     transition: width 0.5s;
 }
 
 #style_toggler {
-    border-color: #1b433280;
+    border-color: $main-color;
 }
 
 #style_toggler.active {
