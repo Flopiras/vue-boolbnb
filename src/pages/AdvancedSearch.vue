@@ -78,29 +78,29 @@ export default {
         <div class="row">
             <!-- FORM -->
             <form @submit.prevent="handleFormSubmission" class="col-12 mb-4">
-                <div class="mb-3 row">
+                <div class="mb-3 row second-color">
                     <div class="col-12 col-md-9">
                         <AddressInput label="Località" v-model:address="form.address" />
                     </div>
                     <div class="col-12 col-md-3">
                         <label for="distance">Distanza massima in km</label>
-                        <input type="number" id="distance" class="form-control" v-model="form.distance" />
+                        <input type="number" id="distance" class="form-control main-color" v-model="form.distance" />
                     </div>
                 </div>
                 <!-- ROOMS AND BEDROOMS -->
                 <div class="d-flex mb-3 gap-3">
                     <div>
-                        <label for="rooms">Stanze</label>
-                        <input type="number" id="rooms" class="form-control" v-model="form.rooms" />
+                        <label for="rooms" class="second-color">Stanze</label>
+                        <input type="number" id="rooms" class="form-control main-color" v-model="form.rooms" />
                     </div>
                     <div>
-                        <label for="bedrooms">Camere da letto</label>
-                        <input type="number" id="bedrooms" class="form-control" v-model="form.bedrooms" />
+                        <label for="bedrooms" class="second-color">Camere da letto</label>
+                        <input type="number" id="bedrooms" class="form-control main-color" v-model="form.bedrooms" />
                     </div>
                 </div>
                 <!-- SERVICES -->
                 <div>
-                    <ul v-if="services.length > 0" class="list-unstyled d-flex flex-wrap">
+                    <ul v-if="services.length > 0" class="list-unstyled d-flex flex-wrap main-color">
                         <li v-for="service, i in services" :key="service.id" class="me-3">
                             <label :for="`service-${service.id}`">
                                 <FontAwesomeIcon :icon="['fas', service.icon]" />
@@ -113,8 +113,8 @@ export default {
 
                 </div>
                 <div>
-                    <button class="btn btn-primary">Cerca</button>
-                    <button type="button" class="btn btn-secondary ms-2" @click="emptyForm">Svuota</button>
+                    <button class="btn btn-second fw-semibold">Cerca</button>
+                    <button type="button" class="btn btn-main fw-semibold ms-4" @click="emptyForm">Svuota</button>
                 </div>
             </form>
 
