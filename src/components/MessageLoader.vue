@@ -9,7 +9,7 @@ export default {
 
 <template>
     <div class="loader" role="status">
-        <svg width="200" height="200" viewBox="0 0 200 200" color="#3f51b5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="200" height="200" viewBox="0 0 200 200" color="#1b4332" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="spinner-secondHalf">
                     <stop offset="0%" stop-opacity="0" stop-color="currentColor" />
