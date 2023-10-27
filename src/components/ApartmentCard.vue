@@ -30,12 +30,12 @@ export default {
         </RouterLink>
 
         <div class="card_bio">
-            <h3 class="card-title">{{ apartment.name }}</h3>
-            <p class="address">{{ apartment.address }}</p>
+            <h3 class="card-title second-color">{{ apartment.name }}</h3>
+            <p class="address main-color m-0 mt-2">{{ apartment.address }}</p>
 
-            <ul class="list-unstyled d-flex flex-wrap my-3">
+            <ul class="list-unstyled d-flex flex-wrap">
                 <li v-for="service in apartment.services" :key="service.id"
-                    class="d-flex justify-content-start align-items-baseline me-3">
+                    class="d-flex justify-content-start align-items-baseline me-3 main-color">
                     <FontAwesomeIcon :icon="['fas', service.icon]" />
                 </li>
             </ul>
@@ -60,7 +60,7 @@ export default {
 }
 
 .card img {
-    height: 285px;
+    min-height: 285px;
     border-radius: 5px;
 }
 
