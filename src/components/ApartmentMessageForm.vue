@@ -70,39 +70,36 @@ export default {
 }
 </script>   
 
-
-
-
 <template>
     <div class="card border rounded border-secondary-subtle" v-show="!messageSend">
-        <div class="card-body d-flex align-items-center flex-column">
-            <h4 class="card-title align-self-start">Contatta il proprietario</h4>
-            <h6 class="card-subtitle mb-2 text-body-secondary py-2 align-self-start">
+        <div class="card-body d-flex align-items-center flex-column mt-3">
+            <h4 class="card-title second-color align-self-center">Contatta il proprietario</h4>
+            <h6 class="card-subtitle mb-2 main-color py-2 align-self-center">
                 <span class="fw-semibold">{{ apartment.name }}</span>
                 - {{ apartment.address }}
             </h6>
             <form action="#" class="row px-3 g-2" @submit.prevent="handleSubmit" novalidate>
-                <textarea name="content" id="content" cols="40" rows="4"
+                <textarea name="content" id="content" cols="40" rows="4" class="main-color"
                     :class="[{ 'is-invalid': errors.content }, 'form-control', 'col']" placeholder="Messaggio*"
                     v-model.trim="form.content" @input="refreshErrors('content')"></textarea>
                 <div class="invalid-feedback my-2">
                     {{ errors.content }}
                 </div>
-                <input type="text" name="name" id="name" placeholder="Nome*"
+                <input type="text" name="name" id="name" placeholder="Nome*" class="main-color"
                     :class="[{ 'is-invalid': errors.name }, 'form-control']" v-model.trim="form.name"
                     @input="refreshErrors('name')">
                 <div class="invalid-feedback my-2" v-if="errors.name">
                     {{ errors.name }}
                 </div>
-                <input type="text" name="email" id="email" placeholder="Email*"
+                <input type="text" name="email" id="email" placeholder="Email*" class="main-color"
                     :class="[{ 'is-invalid': errors.email }, 'form-control']" v-model.trim="form.email"
                     @input="refreshErrors('email')">
                 <div class="invalid-feedback my-2" v-if="errors.email">
                     {{ errors.email }}
                 </div>
-                <p class="text-end">*campi obbligatori</p>
-                <div>
-                    <button type="submit" class="btn btn-primary"><font-awesome-icon :icon="['fas', 'paper-plane']" />
+                <p class="text-end second-color">*campi obbligatori</p>
+                <div class="d-flex justify-content-center mb-4">
+                    <button type="submit" class="btn btn-main"><font-awesome-icon :icon="['fas', 'paper-plane']" />
                         Invia Messaggio</button>
                 </div>
             </form>
@@ -116,9 +113,10 @@ export default {
                 Vuoi inviare un altro messaggio ?
             </h6>
             <div>
-                <button @click="toggleMessage" type="submit" class="btn btn-primary"><font-awesome-icon
-                        :icon="['fas', 'paper-plane']" />
-                    Invia un altro messaggio</button>
+                <button @click="toggleMessage" type="submit" class="btn btn-primary">
+                    <font-awesome-icon :icon="['fas', 'paper-plane']" />
+                    Invia un altro messaggio
+                </button>
             </div>
         </div>
     </div>

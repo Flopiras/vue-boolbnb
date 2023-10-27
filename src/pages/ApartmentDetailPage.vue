@@ -60,16 +60,20 @@ export default {
 <template>
     <main v-if="isLoadedApartment">
         <header>
-            <div class="container text-center mt-4">
-                <h2>{{ apartment.name }}</h2>
-                <small class="text-secondary">{{ apartment.address }}</small>
+            <div class="container mt-4">
+                <!-- back button -->
+                <button class="mb-3 btn btn-second fw-semibold" @click="$router.back()">Torna indietro</button>
+
+                <div class="text-center">
+                    <h2 class="second-color m-0">{{ apartment.name }}</h2>
+                    <small class="main-color">{{ apartment.address }}</small>
+                </div>
                 <hr>
             </div>
         </header>
         <div class="container mt-4">
-            <button class="mb-3 btn btn-secondary" @click="$router.back()">Torna indietro</button>
             <div class="row justify-content-between">
-                <div class="col-md-1 col-lg-7" v-if="apartment.thumbnail">
+                <div class="col-12 col-lg-7" v-if="apartment.thumbnail">
 
                     <!-- image -->
                     <figure>
@@ -78,44 +82,45 @@ export default {
                     </figure>
                 </div>
                 <!-- map -->
-                <div class="col-md-1 col-lg-5">
+                <div class="col-12 col-lg-4">
                     <AppMap v-if="isLoadedApartment" :apartments="[apartment]" :zoom="10"
                         :coordinates="{ lat: apartment.lat, lng: apartment.lon }" />
                 </div>
-                <div class="col-md-1  col-lg-6">
+                <div class="col-12 col-lg-6">
                     <!-- apartment' info -->
                     <div class="my-5">
-                        <h4 class="text-secondary text-uppercase">Informazioni su questo spazio</h4>
-                        <p>{{ apartment.address }}</p>
-                        <p v-if="apartment.description">{{ apartment.description }}</p>
-                        <p v-else> -- </p>
+                        <h4 class="second-color text-uppercase">Informazioni su questo spazio</h4>
+                        <p class="main-color">{{ apartment.address }}</p>
+                        <p class="main-color" v-if="apartment.description">{{ apartment.description }}</p>
+                        <p class="main-color" v-else> -- </p>
                     </div>
                     <hr>
                     <!-- features -->
-                    <h4 class="text-secondary text-uppercase pt-3 pb-2">Cosa troverai</h4>
+                    <h4 class="second-color text-uppercase pt-3 pb-2">Cosa troverai</h4>
                     <!-- rooms -->
                     <div class="row row-cols-2">
                         <div class="d-flex align-items-baseline">
-                            <span><font-awesome-icon :icon="['fas', 'door-closed']" /> Stanze</span>
-                            <h6 class="ps-2 fw-bold" v-if="apartment.rooms">{{ apartment.rooms }}</h6>
+                            <span class="main-color"><font-awesome-icon :icon="['fas', 'door-closed']" /> Stanze</span>
+                            <h6 class="ps-2 fw-bold second-color" v-if="apartment.rooms">{{ apartment.rooms }}</h6>
                             <span class="ps-4" v-else> -- </span>
                         </div>
                         <!-- bathrooms -->
                         <div class="d-flex align-items-baseline">
-                            <span><font-awesome-icon :icon="['fas', 'shower']" /> Bagni</span>
-                            <h6 class="ps-2 fw-bold" v-if="apartment.bathrooms">{{ apartment.bathrooms }}</h6>
+                            <span class="main-color"><font-awesome-icon :icon="['fas', 'shower']" /> Bagni</span>
+                            <h6 class="ps-2 fw-bold second-color" v-if="apartment.bathrooms">{{ apartment.bathrooms }}</h6>
                             <span class="ps-4" v-else> -- </span>
                         </div>
                         <!-- bedrooms -->
                         <div class="d-flex align-items-baseline">
-                            <span><font-awesome-icon :icon="['fas', 'bed']" /> Stanze da letto</span>
-                            <h6 class="ps-2 fw-bold" v-if="apartment.bedrooms">{{ apartment.bedrooms }}</h6>
+                            <span class="main-color"><font-awesome-icon :icon="['fas', 'bed']" /> Stanze da letto</span>
+                            <h6 class="ps-2 fw-bold second-color" v-if="apartment.bedrooms">{{ apartment.bedrooms }}</h6>
                             <span class="ps-4" v-else> -- </span>
                         </div>
                         <!-- square_meters -->
                         <div class="d-flex align-items-baseline">
-                            <span><font-awesome-icon :icon="['fas', 'house']" /> Metri Quadri</span>
-                            <h6 class="ps-2 fw-bold" v-if="apartment.square_meters">{{ apartment.square_meters }} m&sup2;
+                            <span class="main-color"><font-awesome-icon :icon="['fas', 'house']" /> Metri Quadri</span>
+                            <h6 class="ps-2 fw-bold second-color" v-if="apartment.square_meters">{{ apartment.square_meters
+                            }} m&sup2;
                             </h6>
                             <span class="ps-4" v-else> -- </span>
                         </div>
@@ -135,11 +140,10 @@ export default {
                         </div> -->
                     </div>
 
+                    <!-- services -->
+                    <h4 class="second-color text-uppercase pt-3 pb-2">Servizi</h4>
 
-                    <div class="d-flex align-items-baseline">
-                        <p><font-awesome-icon :icon="['fas', 'person-swimming']" /> Piscina</p>
-                    </div>
-                    <ul class="list-unstyled d-flex flex-wrap my-3">
+                    <ul class="list-unstyled d-flex flex-wrap my-1 main-color">
                         <li v-for="service in apartment.services" :key="service.id"
                             class="d-flex justify-content-start align-items-baseline me-3">
                             <FontAwesomeIcon :icon="['fas', service.icon]" />
@@ -150,7 +154,7 @@ export default {
                     </ul>
                     <hr>
                 </div>
-                <div class="col-md-1 col-lg-4 my-5">
+                <div class="col-12 col-lg-4 my-5">
                     <ApartmentMessageForm :apartment="apartment" />
                 </div>
 
