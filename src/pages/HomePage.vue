@@ -63,15 +63,10 @@ export default {
 </script>
 
 <template>
-	<div class="jumbotron p-5 my-4 main-bg-color rounded-3">
+	<!-- jumbotron -->
+	<div class="jumbotron p-4 my-5 main-bg-color rounded-3">
 		<div class="container py-5">
 			<div class="mb-4">
-
-				<form @submit.prevent="searchAddress"
-					class="d-flex gap-3 flex-wrap flex-lg-nowrap align-items-center justify-content-center">
-					<AddressInput label="Per iniziare cerca un indirizzo" v-model:address="address" />
-					<button class="btn btn-success">Cerca</button>
-				</form>
 
 				<h1 class="display-5 fw-bold text-center pt-4 second-color">
 					BoolBnB
@@ -90,16 +85,20 @@ export default {
 			</div>
 		</div>
 	</div>
-	<div class="container mx-auto p-0 pb-5">
+	<div class="container">
 
-		<h4 class="pt-4 main-color fw-bolder">Appartamenti in evidenza: </h4>
+		<!-- searchbar -->
+		<form @submit.prevent="searchAddress"
+			class="m-5 d-flex gap-3 flex-wrap flex-lg-nowrap align-items-center main-color justify-content-center">
+			<AddressInput label="Per iniziare cerca un indirizzo" v-model:address="address" />
+			<button class="btn btn-second fw-semibold">Cerca</button>
+		</form>
+
+		<h4 class="pt-4 second-color">Appartamenti in evidenza: </h4>
 
 
 		<!-- CARDS: -->
-
-		<!-- <AppMap v-if="apartments.length > 0" :apartments="apartments" /> -->
-
-		<div class="d-flex justify-content-center rounded-1 pt-4 pb-5 p-0 m-0">
+		<div class="d-flex justify-content-center rounded-1 mb-4">
 			<div class="cards_deck row justify-content-center  justify-content-xl-start gap-5 mt-5 m-0 p-0">
 				<div class="card_container p-0" v-for="apartment in sponsoredApartments" :key="apartment.id">
 					<ApartmentCard :homepage="true" :apartment="apartment" />
