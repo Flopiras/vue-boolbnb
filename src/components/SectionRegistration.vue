@@ -1,5 +1,5 @@
 <template>
-    <div id="registration" class="by-4">
+    <div id="registration" class="my-4">
         <div class="row justify-content-around align-items-center">
             <div class="col-lg-5 col-sm-12">
                 <!-- image -->
@@ -2061,8 +2061,7 @@
                     Bastano pochi semplici click!
                 </p>
                 <div class="d-flex justify-content-center">
-                    <a target="_blank" href="http://127.0.0.1:8000/"
-                        class="btn second-bg-color main-color fw-semibold">Clicca
+                    <a target="_blank" href="http://127.0.0.1:8000/" class="btn btn-second fw-semibold">Clicca
                         qui</a>
                 </div>
             </div>
@@ -2070,4 +2069,8 @@
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#registration {
+    padding-top: 8rem
+}
+</style>
